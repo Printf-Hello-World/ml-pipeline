@@ -31,7 +31,7 @@ The key components of the training pipeline are the python modules within the sr
 To install and run, 
    ```bash
    #Clone the Repository
-   git clone https://github.com/Printf-Hello-World/aiip5-Lee-Chun-Wayne-037B.git
+   git clone https://github.com/Printf-Hello-World/ml-pipeline.git
 
    #create a virtual environment and activate it
    python -m venv venv
