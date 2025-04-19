@@ -1,0 +1,86 @@
+data_ingestion_config:
+  db_path : "data/database.db" # database file name
+
+preprocess_config:
+  target_feature: "Target_column_name" # Target column for model,
+  features_to_drop:
+    - "System Location Code"
+    - "Previous Cycle Plant Type"
+
+model_initialisation_config:
+  task: "classification"    # classification or regression
+  model_name: "gradient_boosting"  
+  hyperparams: {}        #if empty
+  model_path: ""    #eg 2025-03-16_09-58-40_svm_classification.pkl
+
+training_method: gridsearchCV #or fit, gridsearchCV
+
+#for gradient_boosting
+param_grid:
+  n_estimators: [100, 200]  # Number of trees
+  learning_rate: [0.1, 0.2]  # Step size
+  max_depth: [3, 5]  # Depth of trees
+
+
+mlflow_uri: "http://127.0.0.1:5000" #local host
+
+model_path_for_inference: "model.pkl" # name of the model
+
+##param grid examples
+
+#for logistic regression
+# param_grid:
+#   C: 
+#     - 0.1
+#     - 1.0
+#     - 10.0
+#   solver:
+#     - "lbfgs"
+#   penalty:
+#     - "l2"
+#     - "l1"
+#   max_iter: 
+#     - 100
+#     - 200
+
+#for elastic net
+# param_grid:
+#   alpha: 
+#     - 0.1
+#     - 1.0
+#     - 10.0
+#   l1_ratio:
+#     - 0.2
+#     - 0.5
+#     - 0.8
+#   max_iter:
+#     - 500
+
+#for gradient boosting
+# param_grid:
+#   n_estimators: [100, 200]  # Number of trees
+#   learning_rate: [0.1, 0.2]  # Step size
+#   max_depth: [3, 5]  # Depth of trees
+
+##model_initialisation_config examples
+
+# model_initialisation_config:
+#   task: "regression"  
+#   model_name: "svm"  
+#   hyperparams: {"C":1.0, "gamma":0.1,"kernel":"rbf"}        #if empty
+#   model_path: ""    #eg 2025-03-16_09-58-40_svm_classification.pkl
+
+
+# #for mlp
+# param_grid:
+#   hidden_layer_sizes:
+#     - [128, 64, 32]
+#     - [64, 32]
+#   activation:
+#     - "relu"
+#   solver: 
+#     - "adam"
+#   learning_rate: 
+#     - "constant"
+#   max_iter: 
+#     - 1000

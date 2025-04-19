@@ -1,0 +1,14 @@
+mlflow
+joblib
+scikit-learn
+matplotlib
+seaborn
+pandas
+numpy
+SQLAlchemy
+pyyaml
+Flask
+Flask-WTF
+requests
+Jinja2
+notebook
