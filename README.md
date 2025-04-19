@@ -8,7 +8,7 @@ The training pipline implements an end to end machine learning workflow and cons
 
     .
     ├── .github
-    ├──  data          # insert the database file in this folder
+    ├──  data          # create and insert the database file in this folder
     ├──  inference     # inference files
     ├── mlartifacts   # this folder is created after running an evaluation for the first time
     ├── mlruns        # this folder is created after running an evaluation for the first time
@@ -24,7 +24,7 @@ The training pipline implements an end to end machine learning workflow and cons
     ├── conf.yaml               #config files for running the pipeline
     ├── requirements.txt        
 
-The key components of the pipeline are the python modules within the src folder. The details of each module will be shown in the [description of pipeline](#usage)
+The key components of the training pipeline are the python modules within the src folder. 
 
 ## Installation
 
@@ -135,10 +135,12 @@ model_path: # Leave this empty for a new model. if loading an exisiting model, i
 1. log_regression: computes and logs the regression metrics (rmse, r^2, mse). The metrics are saved in the mlruns folder. The metrics can be accessed in the mlflow ui under model_metrics. A scatterplot showing the true vales and predicted values are also saved in the mlartifacts folder.
 2. log_classification: computes and logs the classification metrics (precision, recall, accuracy). The confusion matrix is also saved as an artifact (in the mlartifacts folder) and can be viewed on mlflow under artifacts for ease of viewing.
 
+**app.py:**
+This module defines a flask web server that exposes an api endpoint for a saved ml model (remember to include the model name in the conf.yaml file)
 
 ## mlflow
 
-mlflow is used in the evaluation component to log metrics and best_params, artifacts such as confusion matrices and plots are stored using mlflow as well
+mlflow is used in the evaluation component to log metrics and best_params, artifacts such as confusion matrices and plots are stored using mlflow as well.
 
 ![mlflow runs](assets/mlflow_initial.PNG)
 
