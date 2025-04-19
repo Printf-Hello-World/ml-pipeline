@@ -7,7 +7,6 @@ This repo contains two main parts: training pipeline (src folder) and inference 
 The training pipline implements an end to end machine learning workflow and consists of the following file structure:
 
     .
-    ├── .github
     ├──  data          # create and insert the database file in this folder
     ├──  inference     # inference files
     ├── mlartifacts   # this folder is created after running an evaluation for the first time
